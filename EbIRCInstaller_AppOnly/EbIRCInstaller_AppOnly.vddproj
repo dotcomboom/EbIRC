@@ -520,7 +520,7 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:EbIRC"
-        "Manufacturer" = "8:EbiSoft/dcb"
+        "Manufacturer" = "8:EbiSoft, dcb"
         "OSVersionMin" = "8:4.0"
         "OSVersionMax" = "8:5.99"
         "NoUninstall" = "11:FALSE"
