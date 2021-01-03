@@ -55,7 +55,6 @@
             // 
             resources.ApplyResources(this.folderTreeView, "folderTreeView");
             this.folderTreeView.Name = "folderTreeView";
-            this.folderTreeView.PathSeparator = "\\";
             this.folderTreeView.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.folderTreeView_BeforeExpand);
             // 
             // FolderSelectDialog

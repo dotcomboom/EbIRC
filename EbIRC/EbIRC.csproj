@@ -10,8 +10,8 @@
     <RootNamespace>EbiSoft.EbIRC</RootNamespace>
     <AssemblyName>EbIRC</AssemblyName>
     <ProjectTypeGuids>{4D628B5B-2FBC-4AA6-8C16-197242AEB884};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <PlatformFamilyName>PocketPC</PlatformFamilyName>
-    <PlatformID>b2c48bd2-963d-4549-9169-1fa021dce484</PlatformID>
+    <PlatformFamilyName>Smartphone</PlatformFamilyName>
+    <PlatformID>f27da329-3269-4191-98e0-c87d3d7f1db9</PlatformID>
     <OSVersion>5.02</OSVersion>
     <DeployDirSuffix>EbIRC</DeployDirSuffix>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
@@ -21,7 +21,7 @@
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <OldToolsVersion>2.0</OldToolsVersion>
-    <NativePlatformName>Windows Mobile 6 Professional SDK</NativePlatformName>
+    <NativePlatformName>Windows Mobile 6 Standard SDK</NativePlatformName>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
   </PropertyGroup>
@@ -160,6 +160,10 @@
       <SubType>Designer</SubType>
       <DependentUpon>ChannelControlDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FolderSelectDialog.en.resx">
+      <DependentUpon>FolderSelectDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="ServerSettingForm.ja-JP.resx">
       <SubType>Designer</SubType>
       <DependentUpon>ServerSettingForm.cs</DependentUpon>
@@ -204,6 +208,10 @@
       <SubType>Designer</SubType>
       <DependentUpon>SettingForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="StdServer.resx">
+      <DependentUpon>StdServer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
@@ -218,6 +226,12 @@
       <DependentUpon>SettingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings\SettingManager.cs" />
+    <Compile Include="StdServer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StdServer.Designer.cs">
+      <DependentUpon>StdServer.cs</DependentUpon>
+    </Compile>
     <Compile Include="TextBoxInputFilter.cs" />
     <Compile Include="TextWriterTraceListener.cs" />
     <Compile Include="ToastItem.cs" />
