@@ -29,7 +29,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EbIrcMainForm));
             this.mainMenu1 = new System.Windows.Forms.MainMenu();
             this.multiMenuItem = new System.Windows.Forms.MenuItem();
@@ -57,27 +56,9 @@
             this.topicLabel = new System.Windows.Forms.Label();
             this.inputTextBox = new System.Windows.Forms.TextBox();
             this.logTextBox = new System.Windows.Forms.TextBox();
-            this.logContextMenu = new System.Windows.Forms.ContextMenu();
-            this.contextUrlOpenMenuItem = new System.Windows.Forms.MenuItem();
-            this.contextCopyMenuItem = new System.Windows.Forms.MenuItem();
-            this.contextGoogleMenuItem = new System.Windows.Forms.MenuItem();
-            this.inputPanel = new Microsoft.WindowsCE.Forms.InputPanel(this.components);
             this.mainPanel = new System.Windows.Forms.Panel();
             this.pongTimer = new System.Windows.Forms.Timer();
             this.clearHighlightTimer = new System.Windows.Forms.Timer();
-            this.channelContextMenu = new System.Windows.Forms.ContextMenu();
-            this.menuHighlightedMessages = new System.Windows.Forms.MenuItem();
-            this.menuHighlightedSeparator = new System.Windows.Forms.MenuItem();
-            this.menuWholeSeparator = new System.Windows.Forms.MenuItem();
-            this.menuAllChannelMessage = new System.Windows.Forms.MenuItem();
-            this.menuAllHighlightsMessages = new System.Windows.Forms.MenuItem();
-            this.urlContextMenu = new System.Windows.Forms.ContextMenu();
-            this.menuItem2 = new System.Windows.Forms.MenuItem();
-            this.menuItem4 = new System.Windows.Forms.MenuItem();
-            this.menuItem5 = new System.Windows.Forms.MenuItem();
-            this.menuItem6 = new System.Windows.Forms.MenuItem();
-            this.menuItem7 = new System.Windows.Forms.MenuItem();
-            this.notification = new Microsoft.WindowsCE.Forms.Notification();
             this.infomationPanel.SuspendLayout();
             this.mainPanel.SuspendLayout();
             this.SuspendLayout();
@@ -226,36 +207,9 @@
             // 
             // logTextBox
             // 
-            this.logTextBox.ContextMenu = this.logContextMenu;
             resources.ApplyResources(this.logTextBox, "logTextBox");
             this.logTextBox.Name = "logTextBox";
             this.logTextBox.ReadOnly = true;
-            // 
-            // logContextMenu
-            // 
-            this.logContextMenu.MenuItems.Add(this.contextUrlOpenMenuItem);
-            this.logContextMenu.MenuItems.Add(this.contextCopyMenuItem);
-            this.logContextMenu.MenuItems.Add(this.contextGoogleMenuItem);
-            this.logContextMenu.Popup += new System.EventHandler(this.logContextMenu_Popup);
-            // 
-            // contextUrlOpenMenuItem
-            // 
-            resources.ApplyResources(this.contextUrlOpenMenuItem, "contextUrlOpenMenuItem");
-            this.contextUrlOpenMenuItem.Click += new System.EventHandler(this.menuEditOpenURLMenuItem_Click);
-            // 
-            // contextCopyMenuItem
-            // 
-            resources.ApplyResources(this.contextCopyMenuItem, "contextCopyMenuItem");
-            this.contextCopyMenuItem.Click += new System.EventHandler(this.menuEditCopyMenuItem_Click);
-            // 
-            // contextGoogleMenuItem
-            // 
-            resources.ApplyResources(this.contextGoogleMenuItem, "contextGoogleMenuItem");
-            this.contextGoogleMenuItem.Click += new System.EventHandler(this.menuEditGoogleMenuItem_Click);
-            // 
-            // inputPanel
-            // 
-            this.inputPanel.EnabledChanged += new System.EventHandler(this.inputPanel_EnabledChanged);
             // 
             // mainPanel
             // 
@@ -274,75 +228,9 @@
             // 
             this.clearHighlightTimer.Tick += new System.EventHandler(this.clearHighlightTimer_Tick);
             // 
-            // channelContextMenu
-            // 
-            this.channelContextMenu.MenuItems.Add(this.menuHighlightedMessages);
-            this.channelContextMenu.MenuItems.Add(this.menuHighlightedSeparator);
-            this.channelContextMenu.MenuItems.Add(this.menuWholeSeparator);
-            this.channelContextMenu.MenuItems.Add(this.menuAllChannelMessage);
-            this.channelContextMenu.MenuItems.Add(this.menuAllHighlightsMessages);
-            this.channelContextMenu.Popup += new System.EventHandler(this.channelContextMenu_Popup);
-            // 
-            // menuHighlightedMessages
-            // 
-            resources.ApplyResources(this.menuHighlightedMessages, "menuHighlightedMessages");
-            // 
-            // menuHighlightedSeparator
-            // 
-            resources.ApplyResources(this.menuHighlightedSeparator, "menuHighlightedSeparator");
-            // 
-            // menuWholeSeparator
-            // 
-            resources.ApplyResources(this.menuWholeSeparator, "menuWholeSeparator");
-            // 
-            // menuAllChannelMessage
-            // 
-            resources.ApplyResources(this.menuAllChannelMessage, "menuAllChannelMessage");
-            this.menuAllChannelMessage.Click += new System.EventHandler(this.menuAllChannelMessage_Click);
-            // 
-            // menuAllHighlightsMessages
-            // 
-            resources.ApplyResources(this.menuAllHighlightsMessages, "menuAllHighlightsMessages");
-            this.menuAllHighlightsMessages.Click += new System.EventHandler(this.menuAllHighlightsMessage_Click);
-            // 
-            // urlContextMenu
-            // 
-            this.urlContextMenu.MenuItems.Add(this.menuItem2);
-            this.urlContextMenu.MenuItems.Add(this.menuItem4);
-            this.urlContextMenu.MenuItems.Add(this.menuItem5);
-            this.urlContextMenu.MenuItems.Add(this.menuItem6);
-            this.urlContextMenu.MenuItems.Add(this.menuItem7);
-            this.urlContextMenu.Popup += new System.EventHandler(this.urlContextMenu_Popup);
-            // 
-            // menuItem2
-            // 
-            resources.ApplyResources(this.menuItem2, "menuItem2");
-            // 
-            // menuItem4
-            // 
-            resources.ApplyResources(this.menuItem4, "menuItem4");
-            // 
-            // menuItem5
-            // 
-            resources.ApplyResources(this.menuItem5, "menuItem5");
-            // 
-            // menuItem6
-            // 
-            resources.ApplyResources(this.menuItem6, "menuItem6");
-            // 
-            // menuItem7
-            // 
-            resources.ApplyResources(this.menuItem7, "menuItem7");
-            // 
-            // notification
-            // 
-            resources.ApplyResources(this.notification, "notification");
-            this.notification.BalloonChanged += new Microsoft.WindowsCE.Forms.BalloonChangedEventHandler(this.notification_BalloonChanged);
-            this.notification.ResponseSubmitted += new Microsoft.WindowsCE.Forms.ResponseSubmittedEventHandler(this.notification_ResponseSubmitted);
-            // 
             // EbIrcMainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             resources.ApplyResources(this, "$this");
             this.Controls.Add(this.mainPanel);
@@ -382,30 +270,12 @@
         private System.Windows.Forms.MenuItem nicknameSwitchMenuItem;
         private System.Windows.Forms.MenuItem menuNicknameInputMenuItem;
         private System.Windows.Forms.MenuItem menuEditClearMenuItem;
-        private System.Windows.Forms.ContextMenu logContextMenu;
-        private System.Windows.Forms.MenuItem contextCopyMenuItem;
-        private System.Windows.Forms.MenuItem contextGoogleMenuItem;
-        private System.Windows.Forms.MenuItem contextUrlOpenMenuItem;
-        private Microsoft.WindowsCE.Forms.InputPanel inputPanel;
         private System.Windows.Forms.Panel mainPanel;
         private System.Windows.Forms.Timer pongTimer;
         private System.Windows.Forms.Timer clearHighlightTimer;
-        private System.Windows.Forms.ContextMenu channelContextMenu;
-        private System.Windows.Forms.MenuItem menuHighlightedMessages;
-        private System.Windows.Forms.MenuItem menuHighlightedSeparator;
         private System.Windows.Forms.MenuItem multiMenuItem;
-        private System.Windows.Forms.MenuItem menuWholeSeparator;
-        private System.Windows.Forms.MenuItem menuAllChannelMessage;
-        private System.Windows.Forms.MenuItem menuAllHighlightsMessages;
         private System.Windows.Forms.MenuItem menuAllChannelMenuItem;
         private System.Windows.Forms.MenuItem menuAllHighlightsMenuItem;
-        private System.Windows.Forms.ContextMenu urlContextMenu;
-        private System.Windows.Forms.MenuItem menuItem2;
-        private System.Windows.Forms.MenuItem menuItem4;
-        private System.Windows.Forms.MenuItem menuItem5;
-        private System.Windows.Forms.MenuItem menuItem6;
-        private System.Windows.Forms.MenuItem menuItem7;
-        private Microsoft.WindowsCE.Forms.Notification notification;
     }
 }
 

@@ -291,16 +291,16 @@ namespace EbiSoft.EbIRC
         private void ProcessResize()
         {
             // SIPパネル分の大きさ変更
-            if (inputPanel.Enabled)
-            {
-                mainPanel.Location = new Point(0, 0);
-                mainPanel.Size = new Size(this.ClientSize.Width, this.ClientSize.Height - inputPanel.Bounds.Height);
-            }
-            else
-            {
+            //if (inputPanel.Enabled)
+            //{
+            //    mainPanel.Location = new Point(0, 0);
+            //    mainPanel.Size = new Size(this.ClientSize.Width, this.ClientSize.Height - inputPanel.Bounds.Height);
+            //}
+            //else
+            //{
                 mainPanel.Location = new Point(0, 0);
                 mainPanel.Size = this.ClientSize;
-            }
+            //}
         }
 
 
@@ -322,10 +322,10 @@ namespace EbiSoft.EbIRC
                 switch (SettingManager.Data.MultiMenuOperation)
                 {
                     case EbIRCMultiMenuOperations.QuickSwitch:
-                        channelContextMenu.Show(logTextBox, new Point(0, 0));
+                        //channelContextMenu.Show(logTextBox, new Point(0, 0));
                         break;
                     case EbIRCMultiMenuOperations.UrlOpen:
-                        urlContextMenu.Show(logTextBox, new Point(0, 0));
+                        //urlContextMenu.Show(logTextBox, new Point(0, 0));
                         break;
                     case EbIRCMultiMenuOperations.Disconnect:
                         break;
@@ -408,7 +408,7 @@ namespace EbiSoft.EbIRC
         /// </summary>
         private void menuSettingMenuItem_Click(object sender, EventArgs e)
         {
-            using (SettingForm settingForm = new SettingForm())
+            using (StdServer settingForm = new StdServer())
             {
                 // 設定画面開く
                 settingForm.ShowDialog();
@@ -607,7 +607,7 @@ namespace EbiSoft.EbIRC
         /// <param name="e"></param>
         private void logContextMenu_Popup(object sender, EventArgs e)
         {
-            logContextMenu.MenuItems.Clear();
+            /*logContextMenu.MenuItems.Clear();
 
             if (!string.IsNullOrEmpty(GetSelectedURL()))
             {
@@ -617,7 +617,7 @@ namespace EbiSoft.EbIRC
             {
                 logContextMenu.MenuItems.Add(contextGoogleMenuItem);
                 logContextMenu.MenuItems.Add(contextCopyMenuItem);
-            }
+            }*/
         }
 
         /// <summary>
@@ -628,14 +628,14 @@ namespace EbiSoft.EbIRC
         private void channelContextMenu_Popup(object sender, EventArgs e)
         {
             // 一度クリア
-            channelContextMenu.MenuItems.Clear();
+            /*channelContextMenu.MenuItems.Clear();
 
             // ハイライトメッセージの処理
             if (menuHighlightedMessages.MenuItems.Count > 0)
             {
                 channelContextMenu.MenuItems.Add(menuHighlightedMessages);
                 channelContextMenu.MenuItems.Add(menuHighlightedSeparator);
-            }
+            }*/
 
             // その他のチャンネルセレクタの処理
             List<ChannelMenuItem> menus = new List<ChannelMenuItem>(m_channelPopupMenus);
@@ -652,13 +652,13 @@ namespace EbiSoft.EbIRC
             foreach (ChannelMenuItem menu in menus)
             {
                 menu.UpdateText();
-                channelContextMenu.MenuItems.Add(menu);
+                //channelContextMenu.MenuItems.Add(menu);
             }
 
-            // ホール関連追加
+            /* ホール関連追加
             channelContextMenu.MenuItems.Add(menuWholeSeparator);
             channelContextMenu.MenuItems.Add(menuAllChannelMessage);
-            channelContextMenu.MenuItems.Add(menuAllHighlightsMessages);
+            channelContextMenu.MenuItems.Add(menuAllHighlightsMessages); */
         }
 
 
@@ -672,7 +672,7 @@ namespace EbiSoft.EbIRC
             {
                 urls.Add(m.Value);
             }
-            urlContextMenu.MenuItems.Clear();
+            //urlContextMenu.MenuItems.Clear();
             if (urls.Count > 0)
             {
                 for (int i = (urls.Count - 1); i >= 0; i--)
@@ -683,7 +683,7 @@ namespace EbiSoft.EbIRC
                     {
                         OpenUrl((s as MenuItem).Text);
                     };
-                    urlContextMenu.MenuItems.Add(menu);
+                    //urlContextMenu.MenuItems.Add(menu);
                 }
             }
             else
@@ -691,7 +691,7 @@ namespace EbiSoft.EbIRC
                 MenuItem menu = new MenuItem();
                 menu.Text = Resources.NoUrlMenuCaption;
                 menu.Enabled = false;
-                urlContextMenu.MenuItems.Add(menu);
+                //urlContextMenu.MenuItems.Add(menu);
             }
         }
 
@@ -749,7 +749,7 @@ namespace EbiSoft.EbIRC
                         // 無効時間内でなければポップアップする
                         if ((Environment.TickCount - m_lastSendTick) > SettingManager.Data.ChannelShortcutIgnoreTimes)
                         {
-                            channelContextMenu.Show(logTextBox, new Point(0, 0));
+                            //channelContextMenu.Show(logTextBox, new Point(0, 0));
                             e.Handled = true;
                         }
                     }
@@ -1714,7 +1714,7 @@ namespace EbiSoft.EbIRC
                 }
             }
 
-            // このチャンネルのハイライトメッセージを消す
+            /* このチャンネルのハイライトメッセージを消す
             for (int i = (menuHighlightedMessages.MenuItems.Count - 1); i >= 0; i--)
             {
                 ChannelMenuItem menu = menuHighlightedMessages.MenuItems[i] as ChannelMenuItem;
@@ -1722,7 +1722,7 @@ namespace EbiSoft.EbIRC
                 {
                     menuHighlightedMessages.MenuItems.RemoveAt(i);
                 }
-            }
+            } */
 
             // ハイライトチェック解除
             foreach (ChannelMenuItem menu in m_channelPopupMenus)
@@ -1998,7 +1998,7 @@ namespace EbiSoft.EbIRC
             ChannelMenuItem mesMenu = new ChannelMenuItem(channel);
             mesMenu.Text = formattedMessage;
             mesMenu.Click += new EventHandler(menuChannelListChannelsMenuItem_Click);
-            menuHighlightedMessages.MenuItems.Add(mesMenu);
+            //menuHighlightedMessages.MenuItems.Add(mesMenu);
 
             AddLog(m_highlightsCh, string.Format(Resources.WholePrivmsgLogFormat, channel.Name, sender, message));
 
@@ -2020,7 +2020,7 @@ namespace EbiSoft.EbIRC
                     m_toastQueue = new Queue<ToastItem>();
                 }
 
-                lock (notification)
+                /*lock (notification)
                 {
                     if (notification.Visible)
                     {
@@ -2032,7 +2032,7 @@ namespace EbiSoft.EbIRC
                         notification.Text = formattedMessage;
                         notification.Visible = true;
                     }
-                }
+                }*/
             }
 
             if (!m_storeFlag) DoHighlight();
@@ -2361,17 +2361,17 @@ namespace EbiSoft.EbIRC
         {
             if (e.Response == "clear")
             {
-                lock (notification)
+                /*lock (notification)
                 {
                     m_toastQueue.Clear();
                     notification.Visible = false;
-                }
+                } */
             }
         }
 
         private void notification_BalloonChanged(object sender, BalloonChangedEventArgs e)
         {
-            lock (notification)
+            /*lock (notification)
             {
                 if (e.Visible == false)
                 {
@@ -2391,7 +2391,7 @@ namespace EbiSoft.EbIRC
                         notification.Visible = true;
                     }
                 }
-             }
+             }*/
         }
     }
 }

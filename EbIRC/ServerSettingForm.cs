@@ -60,13 +60,13 @@ namespace EbiSoft.EbIRC
         public ServerSettingForm()
         {
             InitializeComponent();
-            InTheHand.WindowsMobile.Forms.TabControlHelper.EnableVisualStyle(tabControl);
+            //InTheHand.WindowsMobile.Forms.TabControlHelper.EnableVisualStyle(tabControl);
 
             // デフォルトサーバーリストの読み込み
-            serverComboBox.Items.Clear();
+            //comboBox1.Items.Clear();
             foreach (string server in SettingManager.Data.DefaultServers)
             {
-                serverComboBox.Items.Add(server);
+                //comboBox1.Items.Add(server);
             }
 
             // エンコーディングリストの読み込み
@@ -236,7 +236,7 @@ namespace EbiSoft.EbIRC
 
                 // Basic
                 m_profile.ProfileName = profileNameTextBox.Text;
-                m_profile.Server = serverComboBox.Text;
+                //m_profile.Server = comboBox1.Text;
                 m_profile.Port = int.Parse(portTextBox.Text);
                 m_profile.UseSsl = serverUseSslCheckBox.Checked;
                 m_profile.NoValidation = serverSslNotValidateCheckBox.Checked;
@@ -269,7 +269,7 @@ namespace EbiSoft.EbIRC
 
                 // Basic
                 profileNameTextBox.Text = m_profile.ProfileName;
-                serverComboBox.Text = m_profile.Server;
+                //comboBox1.Text = m_profile.Server;
                 portTextBox.Text = m_profile.Port.ToString();
                 serverUseSslCheckBox.Checked = m_profile.UseSsl;
                 serverSslNotValidateCheckBox.Checked = m_profile.NoValidation;
